@@ -25,5 +25,21 @@
 
 
 <style lang="scss" scoped>
-
+.card{
+  border: 0px;
+  cursor: pointer;
+  img{
+    border-radius: 50%;
+    &:hover {
+      opacity: 50%;
+    }
+  }
+  h5{
+    color: blue;
+  }
+  hr{
+    width: 20%;
+    margin: 10px auto;
+  }
+}
 </style>
