@@ -20,11 +20,11 @@ import Main from './components/Main.vue'
           params: {
             num: 10,
             offset: 0,
-            language: 'it'
           }
         })
         .then(result => {
-          console.log(result.data);
+          this.store.cardsList = result.data.results;
+          console.log(this.store.cardsList);
         })
         .catch(error=> {
           console.log(error);
