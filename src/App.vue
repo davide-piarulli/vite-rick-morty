@@ -1,10 +1,38 @@
 <script>
+import axios from 'axios';
+import { store } from './data/store'
 import Header from './components/Header.vue'
 import Main from './components/Main.vue'
   export default {
     components:{
       Header,
-      Main
+      Main,
+    },
+    data(){
+      return {
+        store
+      }
+    },
+    methods: {
+      getApi(){
+        console.log('GET API');
+        axios.get(this.store.apiUrl, {
+          params: {
+            num: 10,
+            offset: 0,
+            language: 'it'
+          }
+        })
+        .then(result => {
+          console.log(result.data);
+        })
+        .catch(error=> {
+          console.log(error);
+        })
+      }
+    },
+    mounted(){
+      this.getApi()
     }
   }
 </script>
