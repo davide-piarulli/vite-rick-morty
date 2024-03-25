@@ -4,7 +4,7 @@
       name: String,
       status: String,
       species: String,
-      image: String
+      image: String,
     }
   }
 </script>
@@ -14,7 +14,10 @@
     <div class="card">
       <img :src="image" class="card-img-top" :alt="name">
       <div class="card-body">
-        This is some text within a card body.
+        <h5 class="card-title">{{name}}</h5>
+        <hr>
+        <h6 class="card-title">{{status}}</h6>
+        <p>{{  species }}</p>
       </div>
     </div>
   </div>
