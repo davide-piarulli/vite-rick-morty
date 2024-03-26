@@ -28,6 +28,7 @@ import {store} from '../data/store'
 
 
     </div>
+    
   </div>
 </template>
 

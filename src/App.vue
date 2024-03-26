@@ -17,14 +17,11 @@ import Main from './components/Main.vue'
       getApi(){
         console.log('GET API');
         axios.get(this.store.apiUrl, {
-          params: {
-            num: 10,
-            offset: 0,
-          }
+          params:this.store.queryParams
         })
         .then(result => {
-          this.store.cardsList = result.data.results;
           console.log(this.store.cardsList);
+          this.store.cardsList = result.data.results;
         })
         .catch(error=> {
           console.log(error);
