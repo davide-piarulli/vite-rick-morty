@@ -14,15 +14,36 @@ import {store} from '../data/store'
     <h1>{{ store.mainTitle }}</h1>
 
     <div class="container d-flex justify-content-center ">
-      <input type="text" class="form-control w-25 mx-3" placeholder="Search Character">
-      
-      <input class="form-control w-25" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+      <input
+        class="form-control w-25"
+        list="searchCharacter"
+        id="exampleDataList"
+        placeholder="Search Character">
+        <datalist id="searchCharacter">
+        
+          <option
+            v-for="card in this.store.cardsList" 
+            :key="card.id"
+            :value="card.name">
+
+          </option>
+
+        </datalist>
+
+      <input
+        class="form-control w-25"
+        list="datalistOptions"
+        id="exampleDataList"
+        placeholder="Select Status">
         <datalist id="datalistOptions">
-          <option value="San Francisco"></option>
-          <option value="New York"></option>
-          <option value="Seattle"></option>
-          <option value="Los Angeles"></option>
-          <option value="Chicago"></option>
+        
+          <option
+            v-for="card in this.store.cardsList" 
+            :key="card.id"
+            :value="card.status">
+
+          </option>
+
         </datalist>
       
       
