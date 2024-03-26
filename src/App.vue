@@ -43,6 +43,6 @@ import Main from './components/Main.vue'
 </template>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use './assets/scss/main.scss';
 </style>
