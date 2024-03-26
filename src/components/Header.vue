@@ -1,9 +1,23 @@
 <script>
+import axios from 'axios'
 import {store} from '../data/store'
   export default {
     data(){
       return{
-        store
+        store,
+        name: ''
+      }
+    },
+    methods:{
+      startSearch(){
+        console.log('ricerca');
+        axios.get(this.store.nameUrl)
+        .then(res => {
+          console.log(res.data);
+          this.store.nameList = this.store.cardsList.name
+          console.log(this.store.nameList);
+        })
+        this.$emit('startSearch')
       }
     }
   }
@@ -15,6 +29,8 @@ import {store} from '../data/store'
 
     <div class="container d-flex justify-content-center ">
       <input
+        v-model.trim="name"
+        @keyup.enter="startSearch()"
         class="form-control w-25"
         list="searchCharacter"
         id="exampleDataList"
