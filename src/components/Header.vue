@@ -55,7 +55,11 @@ export default {
         ></option>
       </datalist>
 
-      <button type="button" class="btn btn-primary mx-1">Search</button>
+      <button
+        type="button"
+        class="btn btn-primary mx-1"
+        @click="startSearch()"
+        >Search</button>
       <button type="button" class="btn btn-warning mx-1">Reset</button>
     </div>
 
