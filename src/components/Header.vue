@@ -15,6 +15,8 @@ export default {
         name: this.name
       }
       this.$emit("startSearch");
+      // resetto il campo di ricerca
+      this.name="";
     },
   },
 };
