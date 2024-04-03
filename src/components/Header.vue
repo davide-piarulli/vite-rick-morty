@@ -6,17 +6,20 @@ export default {
     return {
       store,
       name: "",
+      status: "",
     };
   },
   methods: {
     startSearch() {
       console.log("ricerca");
-      this.store.queryParams={
-        name: this.name
-      }
+      this.store.queryParams = {
+        name: this.name,
+        status: this.status,
+      };
       this.$emit("startSearch");
       // resetto il campo di ricerca
-      this.name="";
+      this.name = "";
+      this.status = "";
     },
   },
 };
@@ -44,6 +47,7 @@ export default {
       </datalist>
 
       <input
+        v-model.trim="status"
         class="form-control w-25"
         list="datalistOptions"
         id="exampleDataList"
@@ -51,22 +55,20 @@ export default {
       />
       <datalist id="datalistOptions">
         <option
-          v-for="card in this.store.cardsList"
-          :key="card.id"
-          :value="card.status"
+          v-for="(status, index) in store.statusList"
+          :key="index"
+          :value="status"
         ></option>
       </datalist>
 
-      <button
-        type="button"
-        class="btn btn-primary mx-1"
-        @click="startSearch()"
-        >Search</button>
+      <button type="button" class="btn btn-primary mx-1" @click="startSearch()">
+        Search
+      </button>
       <button type="button" class="btn btn-warning mx-1">Reset</button>
     </div>
 
     <div class="text-center my-5">
-      <p>Risultati trovati:{{ this.store.cardsList.length }} </p>
+      <p>Risultati trovati:{{ this.store.cardsList.length }}</p>
     </div>
   </div>
 </template>
